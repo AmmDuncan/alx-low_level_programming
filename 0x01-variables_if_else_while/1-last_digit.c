@@ -28,7 +28,7 @@ int main(void)
 				"%s %i is %i and is less than 6 and not 0\n", firstPart, n, lastDigit);
 	} else
 	{
-		printf("%s %i is %i and is zero\n", firstPart, n, lastDigit);
+		printf("%s %i is %i and is 0\n", firstPart, n, lastDigit);
 	}
 	return (0);
 }
