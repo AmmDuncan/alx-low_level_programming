@@ -18,6 +18,9 @@ int main(void)
 	if (n < 0)
 	{
 		printf("is negative");
+	} else
+	{
+		printf("is positive");
 	}
 	return (0);
 }
