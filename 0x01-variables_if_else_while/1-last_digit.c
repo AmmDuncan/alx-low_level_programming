@@ -11,11 +11,11 @@
 int main(void)
 {
 	int n;
+	char firstPart[13] = "Last digit of";
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	/* your code goes there */
-	char firstPart[13] = "Last digit of";
 	int lastDigit = n % 10;
 
 	if (lastDigit > 5)
