@@ -19,7 +19,7 @@ void times_table(void)
 			int first = multiple / 10;
 			int second = multiple % 10;
 
-			if (multiple != 0)
+			if (multiplier2 != 0)
 			{
 				_putchar(' ');
 				if (first == 0)
