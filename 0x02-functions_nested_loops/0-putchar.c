@@ -1,4 +1,6 @@
-#include "main.c"
+#include "_putchar.c"
+
+void _putchar(char[]);
 
 /**
  * main - print _puchar
