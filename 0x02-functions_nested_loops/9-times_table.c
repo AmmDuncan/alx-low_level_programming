@@ -19,14 +19,17 @@ void times_table(void)
 			int first = multiple / 10;
 			int second = multiple % 10;
 
-			_putchar(' ');
-			if (first == 0)
+			if (multiple != 0)
 			{
 				_putchar(' ');
-			}
-			else
-			{
-				_putchar(first + '0');
+				if (first == 0)
+				{
+					_putchar(' ');
+				}
+				else
+				{
+					_putchar(first + '0');
+				}
 			}
 			_putchar(second + '0');
 			if (multiplier2 != base)
