@@ -1,6 +1,3 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
 void _putchar(char);
 void print_alphabet(void);
-
-#endif
+void print_alphabet_x10(void);
