@@ -17,6 +17,7 @@ void more_numbers(void)
 
 			int first = num / 10;
 			int second = num % 10;
+
 			if (first > 0)
 			{
 				_putchar(first + '0');
