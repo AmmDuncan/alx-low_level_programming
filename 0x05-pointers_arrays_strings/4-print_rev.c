@@ -10,6 +10,11 @@ void print_rev(char *s)
 	char *first = s;
 	char *cursor = s;
 
+	if (len <= 0)
+	{
+		return;
+	}
+
 	while (len != 0)
 	{
 		cursor++;
@@ -22,6 +27,7 @@ void print_rev(char *s)
 		cursor--;
 	}
 	_putchar(*first);
+	_putchar('\n');
 }
 
 /**
