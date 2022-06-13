@@ -22,7 +22,6 @@ void print_rev(char *s)
 		cursor--;
 	}
 	_putchar(*first);
-	_putchar('\n');
 }
 
 /**
