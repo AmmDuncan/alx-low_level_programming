@@ -10,6 +10,12 @@ void print_rev(char *s)
 	char *first = s;
 	char *cursor = s;
 
+	if (len == 0)
+	{
+		_putchar('\n');
+		return;
+	}
+
 	while (len > 0)
 	{
 		cursor++;
