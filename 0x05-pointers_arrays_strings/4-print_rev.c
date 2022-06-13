@@ -18,7 +18,10 @@ void print_rev(char *s)
 
 	while (cursor != first)
 	{
-		_putchar(*cursor);
+		if (*cursor != '\0')
+		{
+			_putchar(*cursor);
+		}
 		cursor--;
 	}
 	_putchar(*first);
