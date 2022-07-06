@@ -1,7 +1,4 @@
 #include <stdio.h>
-#ifndef FUNCTION_POINTERS_H_
-#include "function_pointers.h"
-#endif
 
 /**
  * print_name  - print_name with given function
