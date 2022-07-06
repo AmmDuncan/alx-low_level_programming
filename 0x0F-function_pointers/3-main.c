@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	param2 = atoi(argv[3]);
 	oper = get_op_func(argv[2]);
 
-	if (param2 == 0 && *(argv[2]) == '/')
+	if (param2 == 0 && (*(argv[2]) == '/' || *(argv[2]) == '%'))
 	{
 		printf("Error\n");
 		exit(100);
@@ -39,3 +39,4 @@ int main(int argc, char *argv[])
 
 	printf("%d\n", result);
 }
+
