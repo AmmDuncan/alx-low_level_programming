@@ -13,11 +13,10 @@ int main(int argc, char *argv[])
 	int result;
 	int (*oper)(int, int);
 
-	if (argc < 4)
+	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
-		return (98);
 	}
 
 	param1 = atoi(argv[1]);
