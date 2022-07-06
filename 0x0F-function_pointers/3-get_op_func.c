@@ -1,18 +1,17 @@
 #include "3-calc.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- * get_op_func - get associated function for an operator
- * @s: operator to search for
- *
- * Return: int (*f)(int, int)
+ * get_op_func - selects the right function to be used
+ * @s: operator
+ * Return: function pointer corresponding to operator given
  */
-int (*get_op_func(char *s))(int, int)
+int (*get_op_func(char *s))(int a, int b)
 {
 	op_t ops[] = {
 	    {"+", op_add},
-	    {"-", op_sub},
+	    {"-", op_add},
 	    {"*", op_mul},
 	    {"/", op_div},
 	    {"%", op_mod},
@@ -20,16 +19,11 @@ int (*get_op_func(char *s))(int, int)
 	int i;
 
 	i = 0;
-
 	while (i < 5)
 	{
-		if (*(ops[i].op) == *s)
-		{
+		if (ops[i].op[0] == s[0])
 			return (ops[i].f);
-		}
-
 		i++;
 	}
-
 	return (NULL);
 }
