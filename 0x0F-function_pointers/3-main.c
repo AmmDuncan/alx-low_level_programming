@@ -4,6 +4,7 @@
  * main - main func
  * @argc: arg count
  * @argv: arg vector
+ * Return: int
  */
 int main(int argc, char *argv[])
 {
@@ -23,10 +24,6 @@ int main(int argc, char *argv[])
 	param2 = atoi(argv[3]);
 	oper = get_op_func(argv[2]);
 	result = oper(param1, param2);
-
-	// printf("param1: %d\n", param1);
-	// printf("param2: %d\n", param2);
-	// printf("operator: %d\n", oper(1, 2));
 
 	printf("%d\n", result);
 }
