@@ -22,6 +22,19 @@ int main(int argc, char *argv[])
 	param1 = atoi(argv[1]);
 	param2 = atoi(argv[3]);
 	oper = get_op_func(argv[2]);
+
+	if (param2 == 0 && *(argv[2]) == '/')
+	{
+		printf("Error\n");
+		exit(100);
+	}
+
+	if (oper == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
+
 	result = oper(param1, param2);
 
 	printf("%d\n", result);
