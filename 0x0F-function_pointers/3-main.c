@@ -1,4 +1,6 @@
 #include "3-calc.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - main func
@@ -39,4 +41,3 @@ int main(int argc, char *argv[])
 
 	printf("%d\n", result);
 }
-
