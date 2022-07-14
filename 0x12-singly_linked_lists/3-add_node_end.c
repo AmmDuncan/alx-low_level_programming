@@ -12,7 +12,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	list_t *current = *head;
 	unsigned int len = 0;
 
-	if (!head || !str)
+	if (!head || !str || !new_node)
 		return (NULL);
 
 	while (str[len])
