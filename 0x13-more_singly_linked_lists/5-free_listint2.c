@@ -1,25 +1,19 @@
 #include "lists.h"
-
 /**
- * free_listint2- free memory used by a linked lisst
- * @head: pointer to head of linked list
+ * free_listint2 - free by setting head to NULL
+ * @head: head of linkedlist
  */
 void free_listint2(listint_t **head)
 {
-	listint_t *current;
-	listint_t *head_l = *head;
+	listint_t *hptr;
 
 	if (head == NULL)
 		return;
 
-	current = head_l->next;
-	*head = NULL;
-
-	while (current)
+	while (*head != NULL)
 	{
-		listint_t *temp = current->next;
-
-		free(current);
-		current = temp;
+		hptr = *head;
+		*head = (*head)->next;
+		free(hptr);
 	}
 }

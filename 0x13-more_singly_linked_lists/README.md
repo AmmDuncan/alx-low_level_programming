@@ -1,3 +1,1 @@
-More Singly Linked Lists
----
-
+# 0x13-more singly linked lists
