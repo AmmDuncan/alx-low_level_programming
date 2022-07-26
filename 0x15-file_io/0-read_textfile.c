@@ -22,9 +22,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	chunk = malloc(sizeof(char) * letters);
+	if (chunk == NULL)
+		return (0);
+
 	rd = read(file, chunk, letters);
 	count = write(1, chunk, rd);
 
+	close(file);
 	free(chunk);
 	return (count);
 }
