@@ -26,7 +26,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	rd = read(file, chunk, letters);
-	count = write(1, chunk, rd);
+	count = write(STDOUT_FILENO, chunk, rd);
 
 	close(file);
 	free(chunk);
