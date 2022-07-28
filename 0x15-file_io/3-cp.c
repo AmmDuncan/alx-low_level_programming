@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 		cant_write_to_file(to_file);
 	while (buffer != NULL)
 	{
-		write(to_fd, buffer, strlen(buffer));
+		write(to_fd, buffer, r);
 		if (r < 1024)
 			buffer = NULL;
 		else
