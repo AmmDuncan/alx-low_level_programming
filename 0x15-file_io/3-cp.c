@@ -38,10 +38,10 @@ int main(int argc, char **argv)
 	while (buffer != NULL)
 	{
 		write(to_fd, buffer, strlen(buffer));
-		if (strlen(buffer) < 1024)
+		if (r < 1024)
 			buffer = NULL;
 		else
-			read(from_fd, buffer, 1024);
+			r = read(from_fd, buffer, 1024);
 	}
 	from_closed = close(from_fd);
 	to_closed = close(to_fd);
