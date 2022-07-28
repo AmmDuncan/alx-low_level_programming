@@ -35,8 +35,7 @@ int main(int argc, char *argv[])
 	ofd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (ofd == -1)
 		printfail(argv[2], 1), exit(99);
-	do
-	{
+	do {
 		ist = read(ifd, buf, MAXSIZE);
 		if (ist == -1)
 			printfail(argv[1], 0), exit(98);
