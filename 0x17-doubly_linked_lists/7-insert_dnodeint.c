@@ -1,63 +1,49 @@
 #include "lists.h"
 
 /**
- * insert_dnodeint_at_index - insert node at index
- *
- * @h: head node
- * @idx: index to insert
- * @n: data to insert
- * Return: dlistint_t* addres of node
+ * insert_dnodeint_at_index - add node to list at given position
+ * @h: points to pointer to head of list
+ * @idx: index to insert node
+ * @n: number to insert in list
+ * Return: address to newly added node
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	unsigned int c = 0;
-	dlistint_t *start, *new;
-	unsigned int len = len_node(h);
+	unsigned int count;
+	dlistint_t *target, *newnode, *prev;
 
-	if (idx == 0)
-		return (add_dnodeint(h, n));
-	start = *h;
-	while (start)
-	{
-		if (c == idx - 1)
-			break;
-		else if (c < idx - 1 && start == NULL)
-			return (NULL);
-		start = start->next;
-		c++;
-	}
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
+	newnode = (dlistint_t *)malloc(sizeof(dlistint_t));
+
+	if (newnode == NULL || h == NULL)
 		return (NULL);
-	if (len == idx)
-		return (add_dnodeint_end(h, n));
-	else if (len < idx)
-		return (NULL);
-	start->next->prev = new;
-	new->next = start->next;
-	start->next = new;
-	new->prev = start;
-	new->n = n;
-	return (new);
-}
 
-/**
- * len_node - list len
- *
- * @node:list
- * Return: unsigned int
- *
- */
-unsigned int len_node(dlistint_t **node)
-{
-	unsigned int len = 0;
-	dlistint_t *start;
-
-	start = *node;
-	while (start != NULL)
+	target = *h;
+	count = 0;
+	prev = NULL;
+	while (target != NULL && count != idx)
 	{
-		len += 1;
-		start = start->next;
+		count++;
+		prev = target;
+		target = target->next;
 	}
-	return (len);
+
+	if (count < idx)
+		return (NULL);
+
+	if (count == idx && target != NULL)
+	{
+		newnode->n = n;
+		newnode->next = target;
+		newnode->prev = prev;
+
+		if (target != NULL)
+			target->prev = newnode;
+
+		if (prev != NULL)
+			prev->next = newnode;
+
+		return (newnode);
+	}
+
+	return (NULL);
 }
