@@ -2,7 +2,7 @@
 
 /**
  * free_dlistint - free space used by list
- * @head: points to head of list
+ * @h: points to head of list
  */
 void free_dlistint(dlistint_t *h)
 {
