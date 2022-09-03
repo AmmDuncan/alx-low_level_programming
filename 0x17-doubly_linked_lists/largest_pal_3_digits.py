@@ -14,4 +14,5 @@ for i in range(lowest_3, highest_3 + 1):
             highest_palindrome = int(toStr)
             args = [i, j]
 
-print(highest_palindrome, args)
+with open("102-result", "w") as f:
+    f.write(str(highest_palindrome))
