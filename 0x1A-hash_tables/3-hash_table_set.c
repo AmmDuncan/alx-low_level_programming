@@ -24,20 +24,20 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[index])
 	{
 		head = cur = ht->array[index];
-		if (!strcmp(cur->key, key))
+		if (strcmp(cur->key, key) == 0)
 			set_and_free(node, cur, value);
 		else
 		{
 			while (cur && cur->next)
 			{
-				if (!strcmp(cur->key, key))
+				if (strcmp(cur->key, key) == 0)
 				{
 					set_and_free(node, cur, value);
 					return (1);
 				}
 				cur = cur->next;
 			}
-			if (!strcmp(cur->key, key))
+			if (strcmp(cur->key, key) == 0)
 				set_and_free(node, cur, value);
 			else
 			{
