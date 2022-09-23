@@ -11,7 +11,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	int index;
 	hash_node_t *cur;
 
-	if (!ht)
+	if (!ht || !key)
 		return (NULL);
 
 	index = key_index((const unsigned char *)key, ht->size);
@@ -26,7 +26,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	}
 	else
 	{
-		while (cur->next)
+		while (cur)
 		{
 			if (!strcmp(cur->key, key))
 			{
