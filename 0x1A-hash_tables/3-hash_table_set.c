@@ -20,8 +20,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!node)
 		return (0);
 
-	node->key = key;
-	node->value = value;
+	node->key = (char *)key;
+	node->value = (char *)value;
 	node->next = NULL;
 
 	index = key_index((const unsigned char *)key, ht->size);
