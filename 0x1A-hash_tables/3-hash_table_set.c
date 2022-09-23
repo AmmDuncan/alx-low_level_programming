@@ -23,8 +23,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *)key, ht->size);
 	if (ht->array[index])
 	{
-		cur = ht->array[index];
-		head = ht->array[index];
+		cur = ht->array[index], head = ht->array[index];
 		if (!strcmp(cur->key, key))
 			set_and_free(node, cur, value);
 		else
