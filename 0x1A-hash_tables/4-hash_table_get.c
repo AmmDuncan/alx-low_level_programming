@@ -21,19 +21,15 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 		return (NULL);
 
 	if (!strcmp(cur->key, key))
-	{
 		return (cur->value);
-	}
-	else
+
+	while (cur)
 	{
-		while (cur)
+		if (!strcmp(cur->key, key))
 		{
-			if (!strcmp(cur->key, key))
-			{
-				return (cur->value);
-			}
-			cur = cur->next;
+			return (cur->value);
 		}
+		cur = cur->next;
 	}
 
 	return (NULL);
