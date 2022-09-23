@@ -24,24 +24,20 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		cur = ht->array[index];
 		if (!strcmp(cur->key, key))
-			cur->value = strdup(value);
+			set_and_free(node, cur, value);
 		else
 		{
 			while (cur && cur->next)
 			{
 				if (!strcmp(cur->key, key))
 				{
-					cur->value = strdup(value);
-					free(node);
+					set_and_free(node, cur, value);
 					return (1);
 				}
 				cur = cur->next;
 			}
 			if (!strcmp(cur->key, key))
-			{
-				cur->value = strdup(value);
-				free(node);
-			}
+				set_and_free(node, cur, value);
 			else
 				cur->next = node;
 		}
@@ -49,4 +45,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	else
 		ht->array[index] = node;
 	return (1);
+}
+
+/**
+ * set_and_free - Set value on current and free node
+ *
+ * @node: node to free
+ * @cur: node to set value on
+ * @value: value to set
+ */
+void set_and_free(hash_node_t *node, hash_node_t *cur,
+		  const char *value)
+{
+	cur->value = strdup(value);
+	free(node);
 }
