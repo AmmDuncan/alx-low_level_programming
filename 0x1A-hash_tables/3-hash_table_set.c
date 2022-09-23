@@ -17,6 +17,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	node = malloc(sizeof(hash_node_t));
+	if (!node)
+		return (0);
 
 	node->key = (char *)key;
 	node->value = (char *)value;
@@ -26,13 +28,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[index])
 	{
 		cur = ht->array[index];
-		while (cur  && cur->next)
+		while (cur && cur->next)
 			cur = cur->next;
 		cur->next = node;
-
-	} else
+	}
+	else
 	{
 		ht->array[index] = node;
 	}
+
 	return (1);
 }
