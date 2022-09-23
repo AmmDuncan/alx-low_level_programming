@@ -40,5 +40,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 char *hash_table_get(const hash_table_t *ht, const char *key);
 void hash_table_print(const hash_table_t *ht);
 void set_and_free(hash_node_t *node, hash_node_t *cur, const char *value);
+void hash_table_delete(hash_table_t *ht);
 
 #endif
