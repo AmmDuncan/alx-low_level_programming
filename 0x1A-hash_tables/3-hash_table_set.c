@@ -62,5 +62,7 @@ void set_and_free(hash_node_t *node, hash_node_t *cur,
 		  const char *value)
 {
 	cur->value = strdup(value);
+	free(node->key);
+	free(node->value);
 	free(node);
 }
