@@ -61,6 +61,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 void set_and_free(hash_node_t *node, hash_node_t *cur,
 		  const char *value)
 {
+	free(cur->value);
 	cur->value = strdup(value);
 	free(node->key);
 	free(node->value);
