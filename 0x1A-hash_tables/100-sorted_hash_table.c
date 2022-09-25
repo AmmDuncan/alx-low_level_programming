@@ -181,3 +181,57 @@ void shash_table_print(const shash_table_t *ht)
 	}
 	printf("}\n");
 }
+
+/**
+ * shash_table_print_rev - print elements in a hash table
+ *
+ * @ht: table to print
+ */
+void shash_table_print_rev(const shash_table_t *ht)
+{
+	shash_node_t *node;
+	int first = 1;
+
+	if (!ht)
+		return;
+
+	printf("{");
+	node = ht->stail;
+	while (node)
+	{
+		if (!first)
+			printf(", ");
+
+		first = 0;
+		printf("'%s': '%s'", node->key, node->value);
+		node = node->sprev;
+	}
+	printf("}\n");
+}
+
+/**
+ * shash_table_delete - Delete a hash table
+ * @ht: points to table to delete
+ */
+void shash_table_delete(shash_table_t *ht)
+{
+	shash_node_t *node, *prev;
+
+	if (!ht)
+		return;
+
+	prev = node = ht->shead;
+
+	if (node != NULL)
+		while (node)
+		{
+			prev = node;
+			node = node->snext;
+			free(prev->key);
+			free(prev->value);
+			free(prev);
+		}
+
+	free(ht->array);
+	free(ht);
+}
