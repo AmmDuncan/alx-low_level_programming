@@ -109,12 +109,12 @@ void set_at_index(shash_table_t *ht,
 		  shash_node_t *node,
 		  shash_node_t *cur)
 {
-	node->sprev = ht->stail;
-	if (ht->shead == NULL)
-		ht->shead = node;
-	if (ht->stail != NULL)
-		ht->stail->snext = node;
-	ht->stail = node;
+	node->snext = ht->shead;
+	if (ht->shead != NULL)
+		ht->shead->sprev = node;
+	if (ht->stail == NULL)
+		ht->stail = node;
+	ht->shead = node;
 	if (cur == NULL)
 		ht->array[index] = node;
 	else
