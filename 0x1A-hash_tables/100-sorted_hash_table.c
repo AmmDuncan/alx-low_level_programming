@@ -4,7 +4,7 @@
  * shash_table_create - Create sorted hash table
  *
  * @size: size of table
- * @Return: pointer to created hash table
+ * Return: pointer to created hash table
  */
 shash_table_t *shash_table_create(unsigned long int size)
 {
