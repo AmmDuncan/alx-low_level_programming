@@ -114,7 +114,7 @@ void set_at_index(shash_table_t *ht,
 	ptr = ht->shead;
 	prev = NULL;
 
-	while (ptr != NULL && node->key[0] >= ptr->key[0])
+	while (ptr != NULL && strcmp(node->key, ptr->key) > 0)
 	{
 		prev = ptr;
 		ptr = ptr->snext;
