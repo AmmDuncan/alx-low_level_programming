@@ -37,16 +37,13 @@ int binary_search(int *array, size_t size, int value)
 	if (array[mid] > value)
 	{
 		found_left = binary_search(left_array, mid, value);
-		if (found_left != -1)
-			if (is_even)
-				return (found_left + 1);
 		return (found_left);
 	}
 	else
 	{
 		found_right = binary_search(right_array, size - mid - 1, value);
 		if (found_right != -1)
-			return (mid + found_right);
+			return (mid + found_right + 1);
 	}
 	return (-1);
 }
